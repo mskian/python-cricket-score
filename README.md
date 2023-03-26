@@ -40,7 +40,7 @@ pip install -r requirements.txt --upgrade
 - Test the Script
 
 ```sh
-python score.py
+python3 score.py
 ```
 
 - it will automatically Generate a App folder on your OS Home directory Named as `python-cricket-score` with the `score.yaml` file
@@ -49,6 +49,29 @@ python score.py
 ## Contributing 🙌
 
 Your PR's are Welcome
+
+## Lint and Formatting
+
+```sh
+## Check Lint Errors
+python3 -m pip install flake8
+python3 -m flake8
+```
+
+```sh
+## Auto Formatting the Code
+pip install --upgrade autopep8
+python3 -m autopep8 score.py ## Dry Run
+python3 -m autopep8 -i score.py ## Format the Code
+
+# Autofix
+python3 -m autopep8 --select E1,E2,E3,E401,W2,W3 --ignore E226,E24,E26 --in-place --recursive --verbose .
+```
+
+```sh
+## Check Lint Errors
+pylint score.py
+```
 
 ## Disclaimer 🗃
 

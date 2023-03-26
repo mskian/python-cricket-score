@@ -2,3 +2,4 @@ requests==2.22.0
 beautifulsoup4==4.12.0
 halo==0.0.31
 pyaml==21.10.1
+autopep==2.0.2
