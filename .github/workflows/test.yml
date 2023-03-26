@@ -16,5 +16,6 @@ jobs:
           python-version: '3.11'
     - name: use Python 3
       run: |
+       python -m pip install --upgrade pip
        pip install -r requirements.txt
        python test.py

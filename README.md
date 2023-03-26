@@ -34,7 +34,8 @@ kitty --hold python3 $HOME/your-directory/python-criket-score/score.py
 ```sh
 git clone https://github.com/mskian/python-cricket-score.git
 cd python-cricket-score
-pip install -r requirements.txt --upgrade
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
 - Test the Script
