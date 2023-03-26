@@ -1,0 +1,20 @@
+name: score-test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3.5.0
+    - uses: actions/setup-python@v4.5.0
+      with:
+          python-version: '3.11'
+    - name: use Python 3
+      run: |
+       pip install -r requirements.txt
+       python test.py
