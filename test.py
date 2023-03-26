@@ -82,7 +82,6 @@ except IndexError:
     update = soup.find("div", attrs={"class": "cbz-ui-status"}).text.strip() if soup.find("div", attrs={
         "class": "cbz-ui-status"}) else 'Live Score Data Updating Re-check After Few mins or Innings break'
     print(update)
-    sys.exit(1)
 except AttributeError:
     spinner.stop()
     get_mobile_view = url_data.replace("www", "m")
@@ -91,20 +90,15 @@ except AttributeError:
     update = soup.find("div", attrs={"class": "cbz-ui-status"}).text.strip() if soup.find("div", attrs={
         "class": "cbz-ui-status"}) else 'Live Score Data Updating Re-check After Few mins or Innings break'
     print(update)
-    sys.exit(1)
 except requests.ConnectionError as e:
     spinner.stop()
     print("OOPS!! Connection Error")
-    sys.exit(1)
 except requests.Timeout as e:
     spinner.stop()
     print("OOPS!! Timeout Error")
-    sys.exit(1)
 except requests.RequestException as e:
     spinner.stop()
     print("API Error")
-    sys.exit(1)
 except (KeyboardInterrupt, SystemExit):
     spinner.stop()
     print("i am quitting")
-    sys.exit(1)
