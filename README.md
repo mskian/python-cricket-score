@@ -4,7 +4,7 @@
 
 Get Live Cricket Score on your Terminal - A Simple Live Score Data Scraper Created using Python.  
 
-> A Simple Python Script to Get Live Cricket Score your Terminal and CMD  
+> A Simple Python Script to Get Live Cricket Score on your Terminal and CMD  
 
 unofficial API Data Fetched from Cricbuzz.com **(This is for Education Purpose Only)**  
 
