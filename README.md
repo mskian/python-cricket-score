@@ -24,6 +24,13 @@ I use **Kitty Terminal** for my Watch Automation
 kitty --hold python3 $HOME/your-directory/python-criket-score/score.py
 ```
 
+
+
+https://user-images.githubusercontent.com/10300271/227778482-391dcb78-93a9-4b8a-8230-3b75335f7ba5.mp4
+
+
+
+
 ## Requirements 📑
 
 - Python 3
