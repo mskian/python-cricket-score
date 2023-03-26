@@ -28,8 +28,5 @@ jobs:
       - name: Upgrade PIP
         run:  python -m pip install --upgrade pip
 
-      - name: Install Packages
-        run: pip install -r requirements.txt
-
-      - name: Run test
-        run: python test.py
+      - name: Run OS Folder and File Test
+        run: python os.py
