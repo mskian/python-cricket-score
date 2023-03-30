@@ -45,6 +45,10 @@ pip install -r requirements.txt
 - Test the Script
 
 ```sh
+## IPL SCore
+python3 ipl.py
+
+## Get Score the Match URL you Provided
 python3 score.py
 ```
 
