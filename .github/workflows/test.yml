@@ -33,3 +33,6 @@ jobs:
 
       - name: Run test
         run: python test.py
+
+      - name: Run IPL Score test
+        run: python ipl.py
