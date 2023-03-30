@@ -93,6 +93,7 @@ All Credits Goes to <https://www.cricbuzz.com/>
 
 | # | Project Name | Description |
 |---|:------|-------------|
+| 02 | [Live Cricket API PHP](https://github.com/mskian/cricket-api) | Free Cricket API - Live Cricket Score JSON API (PHP) - **Active Development** |
 | 01 | [Live Cricket Score Static Site](https://github.com/mskian/livescore) | A Simple Scrape Method - Fetch the Live Cricket Score from `espncricinfo.com` using Nodejs and Cheerio.js - **Not Maintained** |
 | 02 | [IPL Special](https://github.com/mskian/iplscore) | Cricket API for Get the Live IPL Cricket Score - **not maintained** |
 | 03 | [Live IPL Score Update on Telegram](https://github.com/mskian/score-update) | Get Live IPL cricket Score on Telegram - **Partially maintained**  |
