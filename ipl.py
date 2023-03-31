@@ -23,8 +23,10 @@ try:
         team_names = match.find("h3").text.strip().replace(",", "")
         status = match.find(
             "div", attrs={"class": "cb-text-live"}).text.strip()
-        score = match.find(
-            "div", attrs={"style": "display:inline-block; width:140px"}).text.strip()
+        score = match.find_all(
+            "div", attrs={"style": "display:inline-block; width:140px"})[0].text.strip()
+        score_two = match.find_all(
+            "div", attrs={"style": "display:inline-block; width:140px"})[1].text.strip()
         team_one = match.find_all(
             "div", attrs={"class": "cb-ovr-flo cb-hmscg-tm-nm"})[0].text.strip()
         team_two = match.find_all(
@@ -32,7 +34,8 @@ try:
 
         print("\n")
         print(">", team_names, "-", status, "\n")
-        print("score: ", score, "\n")
+        print(team_one, score, "\n")
+        print(team_two, score_two, "\n")
 
 except IndexError:
     spinner.stop()

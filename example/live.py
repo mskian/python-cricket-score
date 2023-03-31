@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as bs
 from halo import Halo
 
 spinner = Halo(text='Fetching Live Score', color='green', spinner='hamburger')
-url_data = "https://www.cricbuzz.com/cricket-match/live-scores/"
+url_data = "https://www.cricbuzz.com/cricket-match/live-scores"
 recent_data = "https://www.cricbuzz.com/cricket-match/live-scores/recent-matches"
 
 try:
@@ -23,8 +23,10 @@ try:
         team_names = match.find("h3").text.strip().replace(",", "")
         status = match.find(
             "div", attrs={"class": "cb-text-live"}).text.strip()
-        score = match.find(
-            "div", attrs={"style": "display:inline-block; width:140px"}).text.strip()
+        score = match.find_all(
+            "div", attrs={"style": "display:inline-block; width:140px"})[0].text.strip()
+        score_two = match.find_all(
+            "div", attrs={"style": "display:inline-block; width:140px"})[1].text.strip()
         team_one = match.find_all(
             "div", attrs={"class": "cb-ovr-flo cb-hmscg-tm-nm"})[0].text.strip()
         team_two = match.find_all(
@@ -32,7 +34,8 @@ try:
 
         print("\n")
         print(">", team_names, "-", status, "\n")
-        print("score: ", score, "\n")
+        print(team_one, score, "\n")
+        print(team_two, score_two, "\n")
 
 except IndexError:
     spinner.stop()
@@ -43,9 +46,10 @@ except IndexError:
 
     matches = div.find_all(class_="cb-mtch-lst cb-col cb-col-100 cb-tms-itm")
     for match in matches:
-        team_names = match.find("h3").text.strip().replace(",", "")
+        team_names = match.find("h3").text.strip().replace(",", "") if match.find(
+            "h3").text.strip().replace(",", "") else 'NO Live Match at the Moment'
         status = match.find(
-            "div", attrs={"class": "cb-text-complete"}).text.strip()
+            "div", attrs={"class": "cb-text-complete"}).text.strip() if match.find("div", attrs={"class": "cb-text-complete"}) else 'NO Live Match at the Moment'
         print("\n")
         print(">", team_names, "-", status, "\n")
 except AttributeError:
@@ -57,9 +61,10 @@ except AttributeError:
 
     matches = div.find_all(class_="cb-mtch-lst cb-col cb-col-100 cb-tms-itm")
     for match in matches:
-        team_names = match.find("h3").text.strip().replace(",", "")
+        team_names = match.find("h3").text.strip().replace(",", "") if match.find(
+            "h3").text.strip().replace(",", "") else 'NO Live Match at the Moment'
         status = match.find(
-            "div", attrs={"class": "cb-text-complete"}).text.strip()
+            "div", attrs={"class": "cb-text-complete"}).text.strip() if match.find("div", attrs={"class": "cb-text-complete"}) else 'NO Live Match at the Moment'
         print("\n")
         print(">", team_names, "-", status, "\n")
 except requests.ConnectionError as e:
