@@ -24,9 +24,11 @@ try:
         status = match.find(
             "div", attrs={"class": "cb-text-live"}).text.strip()
         score = match.find_all(
-            "div", attrs={"style": "display:inline-block; width:140px"})[0].text.strip()
+            "div", attrs={"style": "display:inline-block; width:140px"})[0].text.strip() if match.find_all(
+            "div", attrs={"style": "display:inline-block; width:140px"})[0].text.strip() else 'Not yet Started'
         score_two = match.find_all(
-            "div", attrs={"style": "display:inline-block; width:140px"})[1].text.strip()
+            "div", attrs={"style": "display:inline-block; width:140px"})[1].text.strip() if match.find_all(
+            "div", attrs={"style": "display:inline-block; width:140px"})[1].text.strip() else 'Not yet Started'
         team_one = match.find_all(
             "div", attrs={"class": "cb-ovr-flo cb-hmscg-tm-nm"})[0].text.strip()
         team_two = match.find_all(
@@ -34,8 +36,8 @@ try:
 
         print("\n")
         print(">", team_names, "-", status, "\n")
-        print(team_one, score, "\n")
-        print(team_two, score_two, "\n")
+        print(">", team_one, "-", score, "\n")
+        print(">", team_two, "-", score_two, "\n")
 
 except IndexError:
     spinner.stop()
