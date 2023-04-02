@@ -21,6 +21,9 @@ git clone https://github.com/mskian/python-cricket-score.git
 cd python-cricket-score
 cd api
 
+## Create Virtual Env
+python3 -m venv venv
+
 ## Activate Virtual Env
 source venv/bin/activate
 
@@ -31,24 +34,30 @@ pip install -r requirements.txt
 python -m flask --version
 
 ## start the dev server 
-flask --app app.py --debug run --host=0.0.0.0 --port=5000
+flask --app index.py --debug run --host=0.0.0.0 --port=5000
 ```
 
-- Edit and Modify on `index.py`
+## Exit from Virtual Env
+
+```sh
+deactivate
+```
+
+- Edit and Modification in `index.py`
 
 ## Usage
 
 - API Home Page
 
 ```sh
-http://127.0.0.1:5001/
+http://127.0.0.1:5000/
 ```
 
 - Get Live Score
 
 ```sh
 # Copy the 5 digit code from cricbuzz Current Live Match URL 
-http://127.0.0.1:5001/score?id=<Match ID>
+http://127.0.0.1:5000/score?id=<Match ID>
 ```
 
 ## LICENSE

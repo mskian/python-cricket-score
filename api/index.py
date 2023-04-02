@@ -1,14 +1,17 @@
 import requests
 from bs4 import BeautifulSoup as bs
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
+cors = CORS(app, resources={
+            r"/score/*": {"origins": [r'^https://.+sanweb.info$']}})
 
 
 @app.route('/')
 def hello():
-    return jsonify({'errorCode': 200, 'message': 'Python Cricket Score API'})
+    return jsonify({'Code': 200, 'message': 'Python Cricket Score API'})
 
 
 @app.route('/score', methods=['GET'])
@@ -24,7 +27,7 @@ def score():
         title = soup.find(
             "h1", attrs={"class": "cb-nav-hdr cb-font-18 line-ht24"}).text.strip().replace(", Commentary", "") if soup.find("h1", attrs={"class": "cb-nav-hdr cb-font-18 line-ht24"}) else 'Data Not Found'
         run_rate = soup.find_all(
-            "span", attrs={"class": "cb-font-12 cb-text-gray"})[0].text.strip() if soup.find_all("span", attrs={"class": "cb-font-12 cb-text-gray"}) else 'Data Not Found'
+            "span", attrs={"class": "cb-font-12 cb-text-gray"})[0].text.strip().replace("CRR:\u00a0", "") if soup.find_all("span", attrs={"class": "cb-font-12 cb-text-gray"}) else 'Data Not Found'
         batter_one = soup.find_all(
             "div", attrs={"class": "cb-col cb-col-50"})[1].text.strip() if soup.find_all("div", attrs={"class": "cb-col cb-col-50"}) else 'Data Not Found'
         batter_two = soup.find_all(
@@ -88,28 +91,28 @@ def score():
         })
     else:
         return jsonify({
-            'title': title,
-            'update': update,
-            'livescore': live_score,
-            'runrate': run_rate,
-            'batterone': batter_one,
-            'batsmanonerun': batter_one_run,
-            'batsmanoneball': batter_one_ball,
-            'batsmanonesr': batter_one_sr,
-            'battertwo': batter_two,
-            'batsmantworun': batter_two_run,
-            'batsmantwoball': batter_two_ball,
-            'batsmantwosr': batter_two_sr,
-            'bowlerone': bowler_one,
-            "bowleroneover": bowler_one_over,
-            "bowleronerun": bowler_one_run,
-            "bowleronewickers": bowler_one_wicket,
-            "bowleroneeconomy": bowler_one_eco,
-            'bowlertwo': bowler_two,
-            "bowlertwoover": bowler_two_over,
-            "bowlertworun": bowler_two_run,
-            "bowlertwowickers": bowler_two_wicket,
-            "bowlertwoeconomy": bowler_two_eco
+            'title': 'Data not Found',
+            'update': 'Data not Found',
+            'livescore': 'Data not Found',
+            'runrate': 'Data not Found',
+            'batterone': 'Data not Found',
+            'batsmanonerun': 'Data not Found',
+            'batsmanoneball': 'Data not Found',
+            'batsmanonesr': 'Data not Found',
+            'battertwo': 'Data not Found',
+            'batsmantworun': 'Data not Found',
+            'batsmantwoball': 'Data not Found',
+            'batsmantwosr': 'Data not Found',
+            'bowlerone': 'Data not Found',
+            "bowleroneover": 'Data not Found',
+            "bowleronerun": 'Data not Found',
+            "bowleronewickers": 'Data not Found',
+            "bowleroneeconomy": 'Data not Found',
+            'bowlertwo': 'Data not Found',
+            "bowlertwoover": 'Data not Found',
+            "bowlertworun": 'Data not Found',
+            "bowlertwowickers": 'Data not Found',
+            "bowlertwoeconomy": 'Data not Found',
 
         })
 
@@ -118,12 +121,15 @@ def score():
 def invalid_route(e):
     return jsonify({'errorCode': 404, 'message': 'URL not found'})
 
+
 @app.errorhandler(500)
 def invalid_route(e):
     return jsonify({'errorCode': 500, 'message': 'URL not found'})
 
+
 if __name__ == '__main__':
-    app.run(
-        host="0.0.0.0",
-        port=int("5000")
-    )
+    app.run()
+    # app.run(
+    #    host="0.0.0.0",
+    #    port=int("5000")
+    # )
