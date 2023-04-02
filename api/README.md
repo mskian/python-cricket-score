@@ -1,8 +1,8 @@
 # Python Cricket API
 
-Free Cricket API - Scrape the data using `BeautifulSoup` and export a output via JSON using Flask is a micro web framework  
+Free Cricket API - Scrape the data using `BeautifulSoup` and export a output via JSON using Flask micro web framework  
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmskian%2Fpython-cricket-score%2Ftree%2Fmain%2Fapi&demo-title=Cricket%20%2B%20API&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmskian%2Fpython-cricket-score%2Ftree%2Fmain%2Fapi)  
 
 ## Requirements 📑
 
@@ -50,3 +50,7 @@ http://127.0.0.1:5001/
 # Copy the 5 digit code from cricbuzz Current Live Match URL 
 http://127.0.0.1:5001/score?id=<Match ID>
 ```
+
+## LICENSE
+
+MIT
