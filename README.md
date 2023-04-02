@@ -57,7 +57,7 @@ python3 score.py
 
 ## JSON API
 
-Free Cricket API - Scrape the data using `BeautifulSoup` and export a output via JSON using Flask micro web framework  
+Free Python Cricket API - Scrape the data using `BeautifulSoup` and export a output via JSON using Flask micro web framework  
 
 Check - <https://github.com/mskian/python-cricket-score/tree/main/api>  
 
