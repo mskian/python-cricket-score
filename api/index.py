@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as bs
-from flask import Flask, jsonify, request
+from flask import Flask, escape, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -16,7 +16,8 @@ def hello():
 
 @app.route('/score', methods=['GET'])
 def score():
-    id = request.args.get('id')
+    get_id = request.args.get('id')
+    id = escape(get_id)
     if id:
         r = requests.get('https://www.cricbuzz.com/live-cricket-scores/' + id)
         soup = bs(r.content, 'html.parser')
