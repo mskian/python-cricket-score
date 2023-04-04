@@ -2,7 +2,7 @@
 
 Free Cricket API - Scrape the data using `BeautifulSoup` and export a output via JSON using Flask micro web framework  
 
-You can Free Deploy it on Vercel and data.space  
+You can Free Deploy it on `Vercel` and `deta.space`  
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmskian%2Fpython-cricket-score%2Ftree%2Fmain%2Fapi)  
 
@@ -45,10 +45,10 @@ flask --app index.py --debug run --host=0.0.0.0 --port=5000
 deactivate
 ```
 
-- Edit and Modification in `index.py` and `main.py`
+- Edit and Modification in `index.py` and `main.py`  
 
-`index.py` - for Vercel Hosting
-`main.py` - for `deta.space` Hosting
+- `index.py` - for Vercel Hosting
+- `main.py` - for `deta.space` Hosting  
 
 - Deploy on Deta  
 
