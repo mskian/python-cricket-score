@@ -14,5 +14,12 @@ ipl.py
 os.py
 example/
 example
-main.py
-Spacefile
+index.py
+.vercelignore
+.git
+__pycache__/
+__pycache__
+.space
+venv
+venv/
+vercel.json
