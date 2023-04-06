@@ -144,12 +144,60 @@ def score():
 
 @app.errorhandler(404)
 def invalid_route(e):
-    return jsonify({'errorCode': 404, 'message': 'URL not found'})
+    return jsonify({
+        'title': 'Data not Found',
+        'update': 'Data not Found',
+        'livescore': 'Data not Found',
+        'runrate': 'Data not Found',
+        'batterone': 'Data not Found',
+        'batsmanonerun': 'Data not Found',
+        'batsmanoneball': 'Data not Found',
+        'batsmanonesr': 'Data not Found',
+        'battertwo': 'Data not Found',
+        'batsmantworun': 'Data not Found',
+        'batsmantwoball': 'Data not Found',
+        'batsmantwosr': 'Data not Found',
+        'bowlerone': 'Data not Found',
+        "bowleroneover": 'Data not Found',
+        "bowleronerun": 'Data not Found',
+        "bowleronewickers": 'Data not Found',
+        "bowleroneeconomy": 'Data not Found',
+        'bowlertwo': 'Data not Found',
+        "bowlertwoover": 'Data not Found',
+        "bowlertworun": 'Data not Found',
+        "bowlertwowickers": 'Data not Found',
+        "bowlertwoeconomy": 'Data not Found',
+
+    })
 
 
 @app.errorhandler(500)
 def invalid_route(e):
-    return jsonify({'errorCode': 500, 'message': 'URL not found'})
+    return jsonify({
+        'title': 'Data not Found',
+        'update': 'Data not Found',
+        'livescore': 'Data not Found',
+        'runrate': 'Data not Found',
+        'batterone': 'Data not Found',
+        'batsmanonerun': 'Data not Found',
+        'batsmanoneball': 'Data not Found',
+        'batsmanonesr': 'Data not Found',
+        'battertwo': 'Data not Found',
+        'batsmantworun': 'Data not Found',
+        'batsmantwoball': 'Data not Found',
+        'batsmantwosr': 'Data not Found',
+        'bowlerone': 'Data not Found',
+        "bowleroneover": 'Data not Found',
+        "bowleronerun": 'Data not Found',
+        "bowleronewickers": 'Data not Found',
+        "bowleroneeconomy": 'Data not Found',
+        'bowlertwo': 'Data not Found',
+        "bowlertwoover": 'Data not Found',
+        "bowlertworun": 'Data not Found',
+        "bowlertwowickers": 'Data not Found',
+        "bowlertwoeconomy": 'Data not Found',
+
+    })
 
 
 if __name__ == '__main__':
