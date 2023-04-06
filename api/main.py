@@ -40,8 +40,13 @@ def score():
         r = requests.get(
             'https://www.cricbuzz.com/live-cricket-scores/' + id, headers=headers)
         soup = bs(r.content, 'html.parser')
-        update = soup.find(
-            "div", attrs={"class": "cb-text-inprogress"}).text.strip() if soup.find("div", attrs={"class": "cb-text-inprogress"}) else 'Data Not Found'
+
+        mobile_data = requests.get(
+            'https://m.cricbuzz.com/live-cricket-scores/' + id, headers=headers)
+        mobileview = bs(mobile_data.content, 'html.parser')
+        update = mobileview.find("div", attrs={"class": "cbz-ui-status"}).text.strip() if mobileview.find("div", attrs={
+            "class": "cbz-ui-status"}) else 'Live Score Data Updating Re-check After Few mins or Innings break'
+
         live_score = soup.find(
             "span", attrs={"class": "cb-font-20 text-bold"}).text.strip() if soup.find("span", attrs={"class": "cb-font-20 text-bold"}) else 'Data Not Found'
         title = soup.find(

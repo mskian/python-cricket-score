@@ -32,8 +32,20 @@ try:
         spinner.stop()
         r = requests.get(url_data)
         soup = bs(r.content, 'html.parser')
-        update = soup.find(
-            "div", attrs={"class": "cb-text-inprogress"}).text.strip()
+        update = soup.find("div", attrs={"class": "cb-text-inprogress"}).text.strip(
+        ) if soup.find("div", attrs={"class": "cb-text-inprogress"}) else 'Data Not Found'
+        tea = soup.find("div", attrs={"class": "cb-text-tea"}).text.strip() if soup.find(
+            "div", attrs={"class": "cb-text-tea"}) else 'Data Not Found'
+        lunch = soup.find("div", attrs={"class": "cb-text-lunch"}).text.strip(
+        ) if soup.find("div", attrs={"class": "cb-text-lunch"}) else 'Data Not Found'
+        innings_break = soup.find("div", attrs={"class": "cb-text-innings.break"}).text.strip(
+        ) if soup.find("div", attrs={"class": "cb-text-innings.break"}) else 'Data Not Found'
+        rain_break = soup.find("div", attrs={"class": "cb-text-rain"}).text.strip(
+        ) if soup.find("div", attrs={"class": "cb-text-rain"}) else 'Data Not Found'
+        wet_outfield = soup.find("div", attrs={"class": "cb-text-wetoutfield"}).text.strip(
+        ) if soup.find("div", attrs={"class": "cb-text-wetoutfield"}) else 'Data Not Found'
+        stumps = soup.find("div", attrs={"class": "cb-text-stumps"}).text.strip(
+        ) if soup.find("div", attrs={"class": "cb-text-stumps"}) else 'Data Not Found'
         live_score = soup.find(
             "span", attrs={"class": "cb-font-20 text-bold"}).text.strip()
         title = soup.find(
@@ -88,7 +100,27 @@ try:
             f"Current Bowler - {bowler_one} - Overs: {bowler_one_over} - Runs: {bowler_one_run} - Wicket: {bowler_one_wicket} - ECO: {bowler_one_eco}")
         print(
             f"other Bowler - {bowler_two} - overs: {bowler_two_over} - Runs: {bowler_two_run} - Wicket: {bowler_two_wicket} ECO: {bowler_two_eco}")
-        print("Update: " + update)
+        if stumps:
+            status = stumps[0].text
+            print(status)
+        elif lunch:
+            status = lunch[0].text
+            print(status)
+        elif tea:
+            status = tea[0].text
+            print(status)
+        elif innings_break:
+            status = innings_break[0].text
+            print(status)
+        elif rain_break:
+            status = rain_break[0].text
+            print(status)
+        elif wet_outfield:
+            status = wet_outfield[0].text
+            print(status)
+        else:
+            status = update
+            print(status)
 
 except IndexError:
     spinner.stop()
